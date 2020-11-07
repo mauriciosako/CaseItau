@@ -3,19 +3,37 @@ package br.com.sako.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="cliente")
 public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name = "nome", nullable = false, length = 250)
 	private String nome;
+
+	@Column(name = "conta", nullable = false, length = 10)
 	private String numConta;
+	
+	
+	@Column(name = "saldo", nullable = false)
 	private BigDecimal saldo;
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -36,13 +54,11 @@ public class Cliente implements Serializable{
 	public void setSaldo(BigDecimal saldo) {
 		this.saldo = saldo;
 	}
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((numConta == null) ? 0 : numConta.hashCode());
 		result = prime * result + ((saldo == null) ? 0 : saldo.hashCode());
@@ -57,10 +73,7 @@ public class Cliente implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Cliente other = (Cliente) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -79,5 +92,4 @@ public class Cliente implements Serializable{
 			return false;
 		return true;
 	}
-	
-}
+	}
