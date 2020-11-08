@@ -1,7 +1,6 @@
 package br.com.sako.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,49 +10,56 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cliente")
-public class Cliente implements Serializable{
+@Table(name = "cliente")
+public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "nome", nullable = false, length = 250)
 	private String nome;
 
 	@Column(name = "conta", nullable = false, length = 10)
 	private String numConta;
-	
-	
+
 	@Column(name = "saldo", nullable = false)
-	private BigDecimal saldo;
-	
+	private float saldo;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getNumConta() {
 		return numConta;
 	}
+
 	public void setNumConta(String numConta) {
 		this.numConta = numConta;
 	}
-	public BigDecimal getSaldo() {
+
+	public float getSaldo() {
 		return saldo;
 	}
-	public void setSaldo(BigDecimal saldo) {
+
+	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,9 +67,10 @@ public class Cliente implements Serializable{
 		result = prime * result + id;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((numConta == null) ? 0 : numConta.hashCode());
-		result = prime * result + ((saldo == null) ? 0 : saldo.hashCode());
+		result = prime * result + Float.floatToIntBits(saldo);
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -85,11 +92,9 @@ public class Cliente implements Serializable{
 				return false;
 		} else if (!numConta.equals(other.numConta))
 			return false;
-		if (saldo == null) {
-			if (other.saldo != null)
-				return false;
-		} else if (!saldo.equals(other.saldo))
+		if (Float.floatToIntBits(saldo) != Float.floatToIntBits(other.saldo))
 			return false;
 		return true;
 	}
-	}
+
+}

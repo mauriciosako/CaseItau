@@ -41,4 +41,11 @@ public class ClienteController {
 		return services.cadastrarCliente(cliente);
 	}
 	
+	@RequestMapping(value="/{conta}",
+			method = RequestMethod.DELETE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public void excluirCliente(@PathVariable("conta") String conta) {
+		services.excluirCliente(conta);
+	}
+	
 }
