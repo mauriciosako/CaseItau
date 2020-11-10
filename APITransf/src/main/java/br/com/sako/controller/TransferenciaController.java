@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sako.model.Transferencia;
-import br.com.sako.services.TransferenciaServices;
+import br.com.sako.service.TransferenciaServices;
 
 @RestController
 @RequestMapping("/transf")

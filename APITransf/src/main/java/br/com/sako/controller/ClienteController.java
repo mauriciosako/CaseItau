@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sako.model.Cliente;
-import br.com.sako.services.ClienteServices;
+import br.com.sako.service.ClienteServices;
 
 @RestController
 @RequestMapping("/cliente")

@@ -1,4 +1,4 @@
-package br.com.sako.services;
+package br.com.sako.service;
 
 import java.util.Date;
 import java.util.List;

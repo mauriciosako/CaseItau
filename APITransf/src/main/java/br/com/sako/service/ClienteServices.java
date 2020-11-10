@@ -1,4 +1,4 @@
-package br.com.sako.services;
+package br.com.sako.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +20,6 @@ public class ClienteServices {
 	
 	public Cliente cadastrarCliente(Cliente cliente) {
 		Optional<Cliente> entity = repository.findByNumConta(cliente.getNumConta());
-//				.orElseThrow(() -> new ContaJaCadastradaException("Número de conta já cadastrado."));
 		if(entity.isPresent()) throw new ContaJaCadastradaException("Número de conta já cadastrado.");
 		
 		return repository.save(cliente);
