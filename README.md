@@ -1,5 +1,5 @@
 # Web Service REST java
->O projeto consiste em um web service desenvolvido com java e com persistencia de dados em MySql. Este web service recebe e envia dados em formato json podendo ser consumido por APPs de diversas plataformas e é um pequeno exemplo que apenas grava e retorna dados de clintes, mas que pode ser expendido e ganhar novas funcionalidades.</p>
+>O projeto consiste em um WS Rest na linguagem Java e com persistÃªncia de dados na memÃ³ria com H2 database. Este WS recebe e envia dados em formato JSON e possui as funcionalidades de cadastrar clientes e listÃ¡-los/consultÃ¡-los, assim como realizar transferÃªncias de valores entre suas contas e listar as transferÃªncias de uma determinada conta</p>
 
 #### Tecnologis/libs utilizadas:
 * Java
@@ -27,7 +27,7 @@ mysql -uroot -p123456
 #mysql>
 CREATE DATABASE client;
 ```
-### 3 - criar tabela cliente, com id, nome, endereço e cpf.
+### 3 - criar tabela cliente, com id, nome, endereÃ§o e cpf.
 >copie e cole os comandos no console no mysql e de enter.
 ```sql
 #mysql>
@@ -36,9 +36,9 @@ CREATE TABLE `cliente` (`nome` varchar(255) NOT NULL, `cpf` varchar(14) NOT NULL
 ALTER TABLE `cliente` ADD PRIMARY KEY (`id`);
 ALTER TABLE `cliente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT
 ```
->pronto nesse ponto o banco de dados já esta pronto para a aplicação.
+>pronto nesse ponto o banco de dados jÃ¡ esta pronto para a aplicaÃ§Ã£o.
 ## importar projeto e rodar no Eclipse.
-#### 1- abra o eclipse, vá até 
+#### 1- abra o eclipse, vÃ¡ atÃ© 
 File> Import> GIT> Projects from Git> Next>
 
 Clone URI> Next>
@@ -47,7 +47,7 @@ Clone URI> Next>
 
 Next> Next >Fisish
 
->com o projeto importado no eclipse, clique com o botão direito sobre o mesmo e selecione.
+>com o projeto importado no eclipse, clique com o botÃ£o direito sobre o mesmo e selecione.
 
  Run as> Run on server> Tomcat v8.0
 
@@ -58,7 +58,7 @@ Next> Next >Fisish
 >selecione o diretorio onde sera instalado o Servidor Tomcat.
 
 ### 2- rode o projeto
->clique com o botao direito dp mouse sobre o projeto e vá até,
+>clique com o botao direito dp mouse sobre o projeto e vÃ¡ atÃ©,
 
 Run as> Run on server>
 
