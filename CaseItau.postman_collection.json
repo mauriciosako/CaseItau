@@ -1,0 +1,835 @@
+{
+	"info": {
+		"_postman_id": "de239320-614c-46b7-8282-3f1c9883a29a",
+		"name": "CaseItau",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listarClientes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46ee5c7f-b418-45c5-a546-7a8eccbe2fdc",
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarCliente1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9bac8820-313e-4335-8a09-8d0a90a8df84",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Mauricio Sako\",\r\n    \"numConta\": \"0000000001\",\r\n    \"saldo\": 1000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarClienteMesmaConta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b1bd6ea7-5ba7-4344-8a59-d165059a7e8b",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Mauricio Sako\",\r\n    \"numConta\": \"0000000001\",\r\n    \"saldo\": 1000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarCliente2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6386e27-cc0d-46de-a53d-377271eedf50",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Daniela Mello\",\r\n    \"numConta\": \"0000000002\",\r\n    \"saldo\": 2000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarClienteClienteContaBranco",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a9a32e7-7746-4c0b-adc2-f7a3cadb951d",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Daniela Mello\",\r\n    \"numConta\": \"\",\r\n    \"saldo\": 2000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarCliente3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c5ca7946-0956-47a4-9270-1a9916efa431",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Lisiane Sako\",\r\n    \"numConta\": \"0000000003\",\r\n    \"saldo\": 3000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarClienteContaMaior10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3489a596-8cf0-43ff-8d21-e10eb1db4e4a",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Lisiane Sako\",\r\n    \"numConta\": \"00000000003\",\r\n    \"saldo\": 3000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarClientes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42820bc1-5081-4d3f-a21d-65845d1585da",
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultaCliente1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e310c15-a78c-40c9-b725-6777c4209842",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 404) \r",
+							"    tests[\"Status code retornado foi 404\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente/0000000001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"0000000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultaCliente2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "61f25f99-cae4-457a-a771-0d287048a6b6",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 404) \r",
+							"    tests[\"Status code retornado foi 404\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente/0000000002",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"0000000002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultaCliente3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d0095e5-d271-45a3-aebc-eb48302381c7",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 404) \r",
+							"    tests[\"Status code retornado foi 404\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente/0000000003",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"0000000003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferencia13",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d4ebde3-b21f-4ab4-b9a3-5ac6eb95bf3c",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 150\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferencia13Maior1000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "094461ba-0ee1-4f1a-b81b-d4ef9bb38a25",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 1050\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferencia23",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6506109b-5932-4c65-85ff-9297178389c1",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 150\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferencia23MaiorSaldo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcd8910f-29b7-43e0-bbad-906ea065cd35",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 600000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferencia31",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca640e1c-b385-47a5-a3a0-7ff8fd73c3b8",
+						"exec": [
+							"if (responseCode.code === 200)\r",
+							"    tests[\"Status code retornado foi 200\"] = true\r",
+							"else if (responseCode.code === 400) \r",
+							"    tests[\"Status code retornado foi 400\"] = true\r",
+							"else {\r",
+							"     tests[\"Status code retornado não esperado\"] = false\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 150\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTransferencias1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65955372-a719-4c74-a623-6f906cd3508b",
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 150\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf/0000000001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf",
+						"0000000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTransferencias2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b09afba-871b-4834-bc4f-5873ddf56bce",
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 150\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf/0000000002",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf",
+						"0000000002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTransferencias3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43122ef7-d7fa-4dad-b7be-5f0562baf511",
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contaDestino\": \"0000000001\",\r\n  \"contaOrigem\": \"0000000002\",\r\n  \"valor\": 150\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transf/0000000003",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transf",
+						"0000000003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarClientes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6347ccfb-03ae-4585-9205-dd537e06f8a2",
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

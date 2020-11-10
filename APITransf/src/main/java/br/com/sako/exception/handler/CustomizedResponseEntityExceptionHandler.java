@@ -12,8 +12,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.sako.exception.ClienteNaoEncontradoException;
 import br.com.sako.exception.ContaJaCadastradaException;
+import br.com.sako.exception.ContaNaoInformadaException;
 import br.com.sako.exception.ExceptionResponse;
 import br.com.sako.exception.SaldoInsuficienteException;
+import br.com.sako.exception.TamanhoContaAcimaLimiteException;
 import br.com.sako.exception.ValorAcimaLimiteException;
 
 @ControllerAdvice 
@@ -54,6 +56,22 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	
 	@ExceptionHandler(ValorAcimaLimiteException.class)
 	public final ResponseEntity<ExceptionResponse> handlerValorAcimaLimiteException(Exception ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(), ex.getMessage(), request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(TamanhoContaAcimaLimiteException.class)
+	public final ResponseEntity<ExceptionResponse> handlerTamanhoContaAcimaLimiteException(Exception ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(), ex.getMessage(), request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(ContaNaoInformadaException.class)
+	public final ResponseEntity<ExceptionResponse> handlerContaNaoInformadaLimiteException(Exception ex, WebRequest request) {
 		ExceptionResponse exceptionResponse = new ExceptionResponse(
 				new Date(), ex.getMessage(), request.getDescription(false));
 		

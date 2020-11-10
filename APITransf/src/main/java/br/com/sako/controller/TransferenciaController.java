@@ -12,14 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sako.model.Transferencia;
 import br.com.sako.service.TransferenciaServices;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(value = "Transferência Endpoint", description = "Endpoint para operações de transferência.")
 @RestController
 @RequestMapping("/transf")
 public class TransferenciaController {
 	
 	@Autowired
 	private TransferenciaServices transferenciaServices;
-	
+
+	@ApiOperation(value = "Consultar as transferências envolvendo uma conta em ordem descrescente de data.")
 	@RequestMapping(value="/{conta}",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -27,6 +31,7 @@ public class TransferenciaController {
 		return transferenciaServices.buscarTransferencias(conta);
 	}
 	
+	@ApiOperation(value = "Realiza transferência de uma valor entre duas contas.")
 	@RequestMapping(method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
