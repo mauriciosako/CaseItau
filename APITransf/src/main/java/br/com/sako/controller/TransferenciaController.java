@@ -31,7 +31,7 @@ public class TransferenciaController {
 		return transferenciaServices.buscarTransferencias(conta);
 	}
 	
-	@ApiOperation(value = "Realiza transferência de uma valor entre duas contas.")
+	@ApiOperation(value = "Realizar transferência de um valor entre duas contas.")
 	@RequestMapping(method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)

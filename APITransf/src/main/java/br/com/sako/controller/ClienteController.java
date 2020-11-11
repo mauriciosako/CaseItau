@@ -31,7 +31,7 @@ public class ClienteController {
 		return services.listarClientes();
 	}
 
-	@ApiOperation(value = "Consultar um cliente pela sua conta")
+	@ApiOperation(value = "Consultar um cliente pela conta")
 	@RequestMapping(value="/{conta}",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
