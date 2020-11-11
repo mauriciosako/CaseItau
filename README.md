@@ -1,117 +1,49 @@
-# Web Service REST java
->O projeto consiste em um web service desenvolvido com java e com persistencia de dados em MySql. Este web service recebe e envia dados em formato json podendo ser consumido por APPs de diversas plataformas e é um pequeno exemplo que apenas grava e retorna dados de clintes, mas que pode ser expendido e ganhar novas funcionalidades.</p>
+# REST API
+>O projeto consiste em um WS Rest na linguagem Java e com persistÃªncia de dados na memÃ³ria com H2 database. Este WS recebe e envia dados em formato JSON e possui as funcionalidades de cadastrar clientes e listÃ¡-los/consultÃ¡-los, assim como realizar transferÃªncias de valores entre suas contas e listar as transferÃªncias de uma determinada conta</p>
 
-#### Tecnologis/libs utilizadas:
-* Java
-* Jersey
-* JSON
-* XML
-* Maven
-* MySql
-* SQL
-* Tomcat 8
-* GIT
+# Setup do projeto
 
->O codio base desse projeto veio do github do Douglas Costa <douglas.cst90@gmail.com>.
-
-# setup do projeto
-## banco de dados
-#### 1 - entrar no console do MySQL.
-> mysql -u 'usuario mysql aqui' -p'senha mysql aqui'
-```shell
-#exemplo
-mysql -uroot -p123456
-```
-#### 2 - criar database como nome ```cliente```
-```sql
-#mysql>
-CREATE DATABASE client;
-```
-### 3 - criar tabela cliente, com id, nome, endereço e cpf.
->copie e cole os comandos no console no mysql e de enter.
-```sql
-#mysql>
-use cliente;
-CREATE TABLE `cliente` (`nome` varchar(255) NOT NULL, `cpf` varchar(14) NOT NULL, `endereco` varchar(255) NOT NULL,`id` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-ALTER TABLE `cliente` ADD PRIMARY KEY (`id`);
-ALTER TABLE `cliente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT
-```
->pronto nesse ponto o banco de dados já esta pronto para a aplicação.
-## importar projeto e rodar no Eclipse.
-#### 1- abra o eclipse, vá até 
-File> Import> GIT> Projects from Git> Next>
-
-Clone URI> Next>
+## Importar projeto e rodar no Eclipse.
+#### 1- Abra o Eclipse e realize a importaÃ§Ã£o do projeto
   
->URI: https://github.com/manoelsmotoso/Web-Service-REST-java.git
+>URI: https://github.com/mauriciosako/CaseItau.git
 
-Next> Next >Fisish
 
->com o projeto importado no eclipse, clique com o botão direito sobre o mesmo e selecione.
+### 2- Executar o projeto
+>Abra a classe Startup.java, clique com o botao direito do mouse sobre a classe e vÃ¡ atÃ©,
 
- Run as> Run on server> Tomcat v8.0
+Run as> Java Application
 
->depois 
+>ApÃ³s a inicializaÃ§Ã£o, abra o navegador em http://localhost:8080/swagger-ui/ para acessar a documentaÃ§Ã£o.
 
-'Download and install'>
+### 3 - Endpoint Cliente e Transferencia
+>Utilizar o [Postman](https://www.getpostman.com "postman") para testar a API. Pode-se importar o arquivo CaseItau.postman_collection.json para ajudar nos testes.
 
->selecione o diretorio onde sera instalado o Servidor Tomcat.
 
-### 2- rode o projeto
->clique com o botao direito dp mouse sobre o projeto e vá até,
-
-Run as> Run on server>
-
->selecione o servidor Toncat criado no passo 1, e clique em 'Finish', depois abra o navegador em http://localhost:8080/rest-api/
-
-### 3 - criar listar e deletar clientes
->recomendo usar o [Postman](https://www.getpostman.com "postman") para testar essa api.
-#### CRUD
-
->#### criar
-#method -  uri
-
-POST - http://localhost:8080/rest-api
+#### a. Cadastrar um cliente - POST - http://localhost:8080/cliente
 ```json
-#headers 
-{ "Content-type": "application/json" } }
-
-#body
 {
-"nome":"",
-"endereco":"",
-"cpf":""
-}
-```
->#### atualizar 
-method -  uri
-
-
-PUT -  http://localhost:8080/rest-api/{id}
-```json
-#headers 
-{ "Content-type": "application/json" }
-
-#body
-{
-"nome":"",
-"endereco":"",
-"cpf":""
+  "nome": "string",
+  "numConta": "string",
+  "saldo": 0
 }
 ```
 
->#### listar 
-method -  uri
+#### b. Consultar um cliente - GET - http://localhost:8080/cliente/{conta}
 
-GET - http://localhost:8080/rest-api
+#### c. Listar todos os clientes - GET - http://localhost:8080/cliente
 
->#### buscar por id 
-method -  uri
 
-GET - http://localhost:8080/rest-api/{id}
+#### d. Realizar uma transferÃªncia - POST - http://localhost:8080/transf
+```json
+{
+  "contaDestino": "string",
+  "contaOrigem": "string",
+  "valor": 0
+}
+```
 
->#### deletar
-method -  uri
+#### e. Consultar as transferÃªncias relacionadas a uma conta - GET - http://localhost:8080/transf/{conta}
 
-DELETE - http://localhost:8080/rest-api/{id}
+
 
