@@ -20,7 +20,7 @@ Run as> Java Application
 >Utilizar o [Postman](https://www.getpostman.com "postman") para testar a API.
 
 
-Cadastrar um cliente - POST - http://localhost:8080/cliente
+####Cadastrar um cliente - POST - http://localhost:8080/cliente
 ```json
 {
   "nome": "string",
@@ -29,12 +29,12 @@ Cadastrar um cliente - POST - http://localhost:8080/cliente
 }
 ```
 
-Consultar um cliente - GET - http://localhost:8080/cliente/{conta}
+####Consultar um cliente - GET - http://localhost:8080/cliente/{conta}
 
-Listar todos os clientes - GET - http://localhost:8080/cliente
+####Listar todos os clientes - GET - http://localhost:8080/cliente
 
 
-Realizar uma transferência - POST - http://localhost:8080/transf
+####Realizar uma transferência - POST - http://localhost:8080/transf
 ```json
 {
   "contaDestino": "string",
@@ -43,7 +43,7 @@ Realizar uma transferência - POST - http://localhost:8080/transf
 }
 ```
 
-Consultar as transferências relacionadas a uma conta - GET - http://localhost:8080/transf/{conta}
+####Consultar as transferências relacionadas a uma conta - GET - http://localhost:8080/transf/{conta}
 
 
 
