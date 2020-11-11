@@ -10,9 +10,7 @@
 
 
 ### 2- Executar o projeto
->Abra a classe Startup.java, clique com o botao direito do mouse sobre a classe e vá até,
-
-Run as> Java Application
+>Abra a classe Startup.java, clique com o botão direito sobre a classe e vá em Run as > Java Application
 
 >Após a inicialização, abra o navegador em http://localhost:8080/swagger-ui/ para acessar a documentação.
 
