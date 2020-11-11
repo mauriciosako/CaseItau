@@ -1,15 +1,15 @@
 # Web Service REST java
 >O projeto consiste em um WS Rest na linguagem Java e com persistência de dados na memória com H2 database. Este WS recebe e envia dados em formato JSON e possui as funcionalidades de cadastrar clientes e listá-los/consultá-los, assim como realizar transferências de valores entre suas contas e listar as transferências de uma determinada conta</p>
 
-# setup do projeto
+# Setup do projeto
 
 ## Importar projeto e rodar no Eclipse.
-#### 1- Abra o eclipse e realize a importação do projeto
+#### 1- Abra o Eclipse e realize a importação do projeto
   
 >URI: https://github.com/mauriciosako/CaseItau.git
 
 
-### 2- rode o projeto
+### 2- Executar o projeto
 >Abra a classe Startup.java, clique com o botao direito do mouse sobre a classe e vá até,
 
 Run as> Java Application
@@ -28,35 +28,22 @@ Cadastrar um cliente - POST - http://localhost:8080/cliente
   "saldo": 0
 }
 ```
->#### atualizar 
-method -  uri
+
+Consultar um cliente - GET - http://localhost:8080/cliente/{conta}
+
+Listar todos os clientes - GET - http://localhost:8080/cliente
 
 
-PUT -  http://localhost:8080/rest-api/{id}
+Realizar uma transferência - POST - http://localhost:8080/transf
 ```json
-#headers 
-{ "Content-type": "application/json" }
-
-#body
 {
-"nome":"",
-"endereco":"",
-"cpf":""
+  "contaDestino": "string",
+  "contaOrigem": "string",
+  "valor": 0
 }
 ```
 
->#### listar 
-method -  uri
+Consultar as transferências relacionadas a uma conta - GET - http://localhost:8080/transf/{conta}
 
-GET - http://localhost:8080/rest-api
 
->#### buscar por id 
-method -  uri
-
-GET - http://localhost:8080/rest-api/{id}
-
->#### deletar
-method -  uri
-
-DELETE - http://localhost:8080/rest-api/{id}
 
