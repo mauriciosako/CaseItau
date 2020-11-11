@@ -17,10 +17,10 @@ Run as> Java Application
 >Após a inicialização, abra o navegador em http://localhost:8080/swagger-ui/ para acessar a documentação.
 
 ### 3 - Endpoint Cliente e Transferencia
->Utilizar o [Postman](https://www.getpostman.com "postman") para testar a API.
+>Utilizar o [Postman](https://www.getpostman.com "postman") para testar a API. Pode-se importar o arquivo CaseItau.postman_collection.json para ajudar nos testes.
 
 
-#### Cadastrar um cliente - POST - http://localhost:8080/cliente
+#### a. Cadastrar um cliente - POST - http://localhost:8080/cliente
 ```json
 {
   "nome": "string",
@@ -29,12 +29,12 @@ Run as> Java Application
 }
 ```
 
-#### Consultar um cliente - GET - http://localhost:8080/cliente/{conta}
+#### b. Consultar um cliente - GET - http://localhost:8080/cliente/{conta}
 
-#### Listar todos os clientes - GET - http://localhost:8080/cliente
+#### c. Listar todos os clientes - GET - http://localhost:8080/cliente
 
 
-#### Realizar uma transferência - POST - http://localhost:8080/transf
+#### d. Realizar uma transferência - POST - http://localhost:8080/transf
 ```json
 {
   "contaDestino": "string",
@@ -43,7 +43,7 @@ Run as> Java Application
 }
 ```
 
-#### Consultar as transferências relacionadas a uma conta - GET - http://localhost:8080/transf/{conta}
+#### e. Consultar as transferências relacionadas a uma conta - GET - http://localhost:8080/transf/{conta}
 
 
 
