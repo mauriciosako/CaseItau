@@ -1,72 +1,24 @@
 # Web Service REST java
 >O projeto consiste em um WS Rest na linguagem Java e com persistência de dados na memória com H2 database. Este WS recebe e envia dados em formato JSON e possui as funcionalidades de cadastrar clientes e listá-los/consultá-los, assim como realizar transferências de valores entre suas contas e listar as transferências de uma determinada conta</p>
 
-#### Tecnologis/libs utilizadas:
-* Java
-* Jersey
-* JSON
-* XML
-* Maven
-* MySql
-* SQL
-* Tomcat 8
-* GIT
-
->O codio base desse projeto veio do github do Douglas Costa <douglas.cst90@gmail.com>.
-
 # setup do projeto
-## banco de dados
-#### 1 - entrar no console do MySQL.
-> mysql -u 'usuario mysql aqui' -p'senha mysql aqui'
-```shell
-#exemplo
-mysql -uroot -p123456
-```
-#### 2 - criar database como nome ```cliente```
-```sql
-#mysql>
-CREATE DATABASE client;
-```
-### 3 - criar tabela cliente, com id, nome, endereço e cpf.
->copie e cole os comandos no console no mysql e de enter.
-```sql
-#mysql>
-use cliente;
-CREATE TABLE `cliente` (`nome` varchar(255) NOT NULL, `cpf` varchar(14) NOT NULL, `endereco` varchar(255) NOT NULL,`id` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-ALTER TABLE `cliente` ADD PRIMARY KEY (`id`);
-ALTER TABLE `cliente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT
-```
->pronto nesse ponto o banco de dados já esta pronto para a aplicação.
-## importar projeto e rodar no Eclipse.
-#### 1- abra o eclipse, vá até 
-File> Import> GIT> Projects from Git> Next>
 
-Clone URI> Next>
+## Importar projeto e rodar no Eclipse.
+#### 1- Abra o eclipse e realize a importação do projeto
   
->URI: https://github.com/manoelsmotoso/Web-Service-REST-java.git
-
-Next> Next >Fisish
+>URI: https://github.com/mauriciosako/CaseItau.git
 
 >com o projeto importado no eclipse, clique com o botão direito sobre o mesmo e selecione.
 
- Run as> Run on server> Tomcat v8.0
-
->depois 
-
-'Download and install'>
-
->selecione o diretorio onde sera instalado o Servidor Tomcat.
-
 ### 2- rode o projeto
->clique com o botao direito dp mouse sobre o projeto e vá até,
+>Abra a classe Startup.java, clique com o botao direito do mouse sobre a classe e vá até,
 
-Run as> Run on server>
+Run as> Java Application
 
->selecione o servidor Toncat criado no passo 1, e clique em 'Finish', depois abra o navegador em http://localhost:8080/rest-api/
+>Após a inicialização, abra o navegador em http://localhost:8080/swagger-ui/ para acessar a documentação.
 
 ### 3 - criar listar e deletar clientes
->recomendo usar o [Postman](https://www.getpostman.com "postman") para testar essa api.
-#### CRUD
+>Utilizar o [Postman](https://www.getpostman.com "postman") para testar a API.
 
 >#### criar
 #method -  uri
