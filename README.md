@@ -8,7 +8,6 @@
   
 >URI: https://github.com/mauriciosako/CaseItau.git
 
->com o projeto importado no eclipse, clique com o botão direito sobre o mesmo e selecione.
 
 ### 2- rode o projeto
 >Abra a classe Startup.java, clique com o botao direito do mouse sobre a classe e vá até,
@@ -17,22 +16,16 @@ Run as> Java Application
 
 >Após a inicialização, abra o navegador em http://localhost:8080/swagger-ui/ para acessar a documentação.
 
-### 3 - criar listar e deletar clientes
+### 3 - Endpoint Cliente e Transferencia
 >Utilizar o [Postman](https://www.getpostman.com "postman") para testar a API.
 
->#### criar
-#method -  uri
 
-POST - http://localhost:8080/rest-api
+Cadastrar um cliente - POST - http://localhost:8080/cliente
 ```json
-#headers 
-{ "Content-type": "application/json" } }
-
-#body
 {
-"nome":"",
-"endereco":"",
-"cpf":""
+  "nome": "string",
+  "numConta": "string",
+  "saldo": 0
 }
 ```
 >#### atualizar 
