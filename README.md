@@ -1,4 +1,4 @@
-# Web Service REST java
+# REST API
 >O projeto consiste em um WS Rest na linguagem Java e com persistência de dados na memória com H2 database. Este WS recebe e envia dados em formato JSON e possui as funcionalidades de cadastrar clientes e listá-los/consultá-los, assim como realizar transferências de valores entre suas contas e listar as transferências de uma determinada conta</p>
 
 # Setup do projeto
