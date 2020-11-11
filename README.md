@@ -4,7 +4,7 @@
 # Setup do projeto
 
 ## Importar projeto e rodar no Eclipse.
-#### 1- Abra o Eclipse e realize a importação do projeto
+### 1- Abra o Eclipse e realize a importação do projeto
   
 >URI: https://github.com/mauriciosako/CaseItau.git
 
